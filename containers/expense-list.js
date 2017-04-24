@@ -27,7 +27,7 @@ class ExpenseList extends React.Component {
       <View style={{flex: 1, paddingTop: 22}} refreshing>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text onTouchEnd={()=> this.props.selectExpense(rowData)}>{rowData.expenseName}</Text>}
+          renderRow={(rowData) => <Text onTouchEnd={()=> this.props.selectExpense(rowData)}>{rowData.name}</Text>}
         />
       </View>
     )

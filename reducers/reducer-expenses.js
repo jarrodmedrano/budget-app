@@ -1,12 +1,12 @@
 export default function() {
   return [
     {
-      expenseName: 'Zum Fitness',
+      name: 'Zum Fitness',
       type: 'health and fitness',
       cost: '100'
     },
     {
-      expenseName: 'Netflix',
+      name: 'Netflix',
       type: 'entertainment',
       cost: '10'
     }
