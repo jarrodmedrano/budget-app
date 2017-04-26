@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import allReducers from './reducers';
-
-import ExpenseList from './containers/expense-list';
-
+import allReducers from './src/reducers';
+import ExpenseList from './src/containers/expense-list';
+import ExpenseForm from './src/containers/expense-form';
 
 const store = createStore(allReducers);
 
@@ -17,6 +16,7 @@ export default class App extends Component {
           <View style={{flex: 1}}>
             <View style={styles.header}><Text style={styles.textHeader}>Budget2Budget</Text></View>
             <View style={styles.body}>
+              <ExpenseForm />
               <ExpenseList />
             </View>
           </View>
