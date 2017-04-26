@@ -1,21 +1,31 @@
 import React from 'react'
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import { reduxForm } from 'redux-form'
 
-const ExpenseForm = () => {
+const submit = (values) => {
+  console.log('submitting form', values)
+};
+
+const ExpenseForm = (props) => {
+  const { handleSubmit } = props;
+
+
   return (
     <View style={styles.container}>
       <Text>Add a new expense</Text>
       <TextInput style={styles.input} placeholder="Expense Name" />
       <TextInput style={styles.input} placeholder="Expense Cost" />
       <TextInput style={styles.input} placeholder="Expense Date" />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleSubmit(submit)}>
         <Text style={styles.button}>Submit</Text>
       </TouchableOpacity>
     </View>
   )
 };
 
-export default ExpenseForm
+export default reduxForm({
+  form: 'test'
+})(ExpenseForm)
 
 const styles = StyleSheet.create({
   button: {
@@ -37,4 +47,4 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 10
   }
-})
+});
