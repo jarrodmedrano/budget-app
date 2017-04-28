@@ -33,16 +33,14 @@ const RenderInput = (props) => {
 }
 
 const ExpenseForm = (props) => {
-  const { handleSubmit } = props;
 
   const formStates = ['active', 'autofilled', 'asyncValidating', 'dirty', 'invalid', 'pristine',
     'submitting', 'touched', 'valid', 'visited'];
 
-
   return (
     <View style={styles.container}>
       <Text>Add a new expense</Text>
-      <Field style={styles.input} name={'name'} component={RenderInput} />
+      <Field style={styles.input} name={'name'} placeholder="Expense Name" component={RenderInput} />
       <Field style={styles.input} name={'cost'} placeholder="Expense Cost" component={RenderInput} />
       <Field style={styles.input} name={'date'} placeholder="Expense Date" component={RenderInput} />
       <Text>The form is:</Text>
