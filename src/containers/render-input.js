@@ -16,11 +16,15 @@ const RenderInput = (props) => {
         onFocus={input.onFocus}
         value={input.value}
       />
+      { /*
+
       <Text>The {input.name} input is:</Text>
       {
         formStates.filter((state) => meta[state]).map((state) => {
           return <Text key={state}> - { state }</Text>;
         })
+      }
+      */
       }
     </View>
   );

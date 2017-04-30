@@ -5,3 +5,12 @@ export const selectExpense = (expense) => {
     payload: expense
   }
 };
+
+const submitExpenseForm = (values) => {
+  return {
+    type: "EXPENSE_SUBMITTED",
+    payload: values
+  }
+};
+
+export default submitExpenseForm;

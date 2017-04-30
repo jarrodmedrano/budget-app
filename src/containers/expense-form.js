@@ -2,10 +2,7 @@ import React from 'react'
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 import RenderInput from './render-input';
-
-const submit = values => {
-  console.log('submitting form', values)
-}
+import submitExpenseForm from '../actions/index';
 
 const ExpenseForm = (props) => {
   const { handleSubmit } = props;
@@ -25,7 +22,7 @@ const ExpenseForm = (props) => {
           return <Text key={state}> - { state }</Text>
         })
       }
-      <TouchableOpacity onPress={handleSubmit(submit)}>
+      <TouchableOpacity onPress={handleSubmit(submitExpenseForm)}>
         <Text style={styles.button}>Submit</Text>
       </TouchableOpacity>
     </View>
