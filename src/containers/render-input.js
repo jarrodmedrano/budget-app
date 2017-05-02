@@ -4,18 +4,16 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 const RenderInput = (props) => {
   const { input, meta, ...inputProps } = props;
 
-  const formStates = ['active', 'autofilled', 'asyncValidating', 'dirty', 'invalid', 'pristine',
-    'submitting', 'touched', 'valid', 'visited'];
+  // const formStates = ['active', 'autofilled', 'asyncValidating', 'dirty', 'invalid', 'pristine',
+  //   'submitting', 'touched', 'valid', 'visited'];
 
   return (
     <View>
       <TextInput
         {...inputProps}
-        onChangeText={input.onChange}
-        onBlur={input.onBlur}
-        onFocus={input.onFocus}
-        value={input.value}
+        {...input}
       />
+      {meta.touched ? meta.error : null}
       { /*
 
       <Text>The {input.name} input is:</Text>
@@ -29,5 +27,11 @@ const RenderInput = (props) => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+
+
+
+});
 
 export default RenderInput;

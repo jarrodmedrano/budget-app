@@ -16,12 +16,11 @@ const ExpenseForm = (props) => {
       <Field style={styles.input} name={'name'} placeholder="Expense Name" component={RenderInput} />
       <Field style={styles.input} name={'cost'} placeholder="Expense Cost" component={RenderInput} />
       <Field style={styles.input} name={'date'} placeholder="Expense Date" component={RenderInput} />
-      <Text>The form is:</Text>
-      {
+      {/*<Text>The form is:</Text>
         formStates.filter((state) => props[state]).map((state) => {
           return <Text key={state}> - { state }</Text>
         })
-      }
+      */}
       <TouchableOpacity onPress={handleSubmit(submitExpenseForm)}>
         <Text style={styles.button}>Submit</Text>
       </TouchableOpacity>
@@ -29,8 +28,19 @@ const ExpenseForm = (props) => {
   )
 };
 
+const validate = (values) => {
+  const errors = {};
+
+  !values.name ? errors.name = <Text style={styles.error}>Enter a name</Text> : null;
+  !values.cost ? errors.cost = <Text style={styles.error}>Enter a cost</Text> : null;
+  !values.date ? errors.date = <Text style={styles.error}>Enter a date</Text> : null;
+
+  return errors;
+};
+
 export default reduxForm({
-  form: 'test'
+  validate,
+  form: 'ExpenseForm'
 })(ExpenseForm)
 
 const styles = StyleSheet.create({
@@ -43,14 +53,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: 250
   },
-  container: {
-
-  },
   input: {
     borderWidth: 1,
     height: 37,
     width: 250,
     padding: 10,
     marginTop: 10
+  },
+  error: {
+    color: 'red'
   }
 });

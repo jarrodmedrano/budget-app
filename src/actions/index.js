@@ -7,6 +7,7 @@ export const selectExpense = (expense) => {
 };
 
 const submitExpenseForm = (values) => {
+  console.log(values);
   return {
     type: "EXPENSE_SUBMITTED",
     payload: values
